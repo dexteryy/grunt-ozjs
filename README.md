@@ -2,7 +2,7 @@
 
 > [OzJS](https://github.com/dexteryy/OzJS) is a microkernel for modular javascript, with bundles of powerful yet micro-framework friendly AMD modules. 
 
-> [Ozma](https://npmjs.org/package/ozma) is an autobuild tool for OzJS based WebApp
+> [Ozma](https://github.com/dexteryy/ozma.js) is an intelligent autobuild tool for OzJS.
 
 ## Getting Started
 Install this [grunt] plugin next to your project's [grunt.js gruntfile][getting_started] with: 
