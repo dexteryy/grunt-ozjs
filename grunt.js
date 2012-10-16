@@ -3,40 +3,45 @@ module.exports = function(grunt) {
     'use strict';
 
     grunt.initConfig({
-        info: '<json:package.json>',
+        info: grunt.file.readJSON('package.json'),
         meta: {
-            banner: '/*!\n * test cases for <%= info.title || info.name %> - v<%= info.version %> - ' +
+            name: 'testapp',
+            distDir: 'tests/dist',
+            staticDir: 'tests/static',
+            banner: '/*!\n * test app for <%= info.title || info.name %> - v<%= info.version %> - ' +
                 '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
                 ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= info.author.name %>;' +
                 ' Licensed <%= _.pluck(info.licenses, "type").join(", ") %>\n */'
         },
-        oz: {},
+        oz: {
+            // comming soon...
+        },
         ozma: {
-            test: {
+            testapp: {
                 src: 'tests/js/main.js',
-                config: {
+                saveConfig: false, // true for default ('ozconfig.json'), or string for specified path and file name
+                debounceDelay: 3000, // fix for built-in watc
+                'config': { // or existing configuration file, same as option '--config'
                     baseUrl: "tests/js/",
-                    distUrl: "tests/.tmp/js/",
+                    distUrl: "<%= meta.distDir %>/js/",
                     loader: "lib/oz.js",
                     disableAutoSuffix: true
                 },
-                save_config: false,
-                debounceDelay: 3000,
-                silent: false,
-                jam: false,
-                'enable-modulelog': false
+                'silent': false, // same as 'ozma --silent'
+                'jam': false, // same as 'ozma --jam'
+                'enable-modulelog': false // same as 'ozma --enable-modulelog'
             }
         },
         concat: {
             dist: {
-                src: ['<banner:meta.banner>', 'tests/.tmp/js/main.js'],
-                dest: 'tests/dist/js/test.js'
+                src: ['<banner:meta.banner>', '<%= meta.distDir %>/js/main.js'],
+                dest: '<%= meta.staticDir %>/js/<%= meta.name %>.js'
             }
         },
         min: {
             dist: {
-                src: ['<banner:meta.banner>', '<config:concat.dist.dest>'],
-                dest: 'tests/dist/js/test.min.js'
+                src: ['<banner:meta.banner>', '<%= concat.dist.dest %>'],
+                dest: '<%= meta.staticDir %>/js/<%= meta.name %>.min.js'
             }
         },
         lint: {
@@ -44,12 +49,12 @@ module.exports = function(grunt) {
         },
         watch: {
             files: 'tests/js/**/*.js',
-            tasks: 'ozma:test concat'
+            tasks: 'ozma:testapp concat'
         }
     });
 
     grunt.loadTasks('tasks');
 
-    grunt.registerTask('default', 'lint ozma:test concat min');
+    grunt.registerTask('default', 'lint ozma:testapp concat min');
 
 };

@@ -24,36 +24,38 @@ grunt.loadNpmTasks('grunt-ozjs');
 
 ``` javascript
 oz: {
-    // not yet
+    // comming soon...
 },
 ozma: {
-    dist: {
-        src: 'tests/js/main.js',
-        config: { // or existing configuration file
+    testapp: {
+        src: 'tests/js/main.js', // same as 'ozma tests/js/main.js'
+        saveConfig: false, // true for default ('ozconfig.json'), or string for specified path and file name
+        debounceDelay: 3000, // see [1]
+        config: { // or existing configuration file, same as option '--config'
             baseUrl: "tests/js/",
             distUrl: "tests/.tmp/js/",
             loader: "lib/oz.js",
             disableAutoSuffix: true
-        },
-        save_config: false, // or specified path and file name
-        debounceDelay: 3000
+        }
     }
 }
 ```
 
+[1]: fix for [built-in watch](https://github.com/gruntjs/grunt/issues/376)
+
 #### Options
 
-For a full list of possible options, [see the grunt.js example]().
+For a full list of possible options, [see the grunt.js example](https://github.com/dexteryy/grunt-ozjs/blob/master/grunt.js).
 
 ## Examples
 
 Execute the following command from `./` directory 
 
 ```
-grunt ozma:dist
+grunt ozma:testapp
 ```
 
-See `tests/.tmp/js/main.js`
+See `tests/dist/js/main.js`
 
 Then execute:
 
@@ -61,7 +63,7 @@ Then execute:
 grunt
 ```
 
-See `tests/index.html` and `tests/dist/js/`
+See `tests/index.html` and `tests/static/js/`
 
 ## License
 Copyright (c) 2012 dexteryy  

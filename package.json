@@ -2,7 +2,7 @@
     "name": "grunt-ozjs",
     "title": "grunt-ozjs",
     "description": "grunt tasks for oz.js and ozma.js",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "homepage": "https://github.com/dexteryy/grunt-ozjs",
     "author": {
         "name": "dexteryy",
