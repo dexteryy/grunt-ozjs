@@ -4,7 +4,7 @@ module.exports = function(grunt){
     var path = require('path');
     var Ozma = require('ozma').Ozma;
     var DESC = 'enables you to use gruntfile to configure ozma and integrate with other grunt tasks';
-    var _lock;
+    var _lock, _dur;
 
     grunt.registerMultiTask('ozma', DESC, function() {
         var done = this.async();
@@ -12,9 +12,9 @@ module.exports = function(grunt){
     });
 
     grunt.registerHelper('ozma', function(opt, cb) {
-        if (_lock) {
-            grunt.log.write('The interval(' + (+new Date() - _lock) +
-                's) is shorter than ' + opt.debounceDelay + 's, skip...');
+        var delay;
+        if (_lock && (delay = opt.debounceDelay) && (_dur = +new Date() - _lock) < delay) {
+            grunt.log.write('The interval(' + _dur + 's) is shorter than ' + delay + 's, skip...');
             return cb();
         }
         _lock = +new Date();
