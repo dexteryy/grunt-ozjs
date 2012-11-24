@@ -1,10 +1,15 @@
+<!---
+layout: intro
+title: grunt-ozjs
+-->
+
 # grunt-ozjs
 
-> [OzJS](https://github.com/dexteryy/OzJS) is a microkernel for modular javascript, with bundles of powerful yet micro-framework friendly AMD modules. 
-
-> [Ozma](https://github.com/dexteryy/ozma.js) is an intelligent autobuild tool for OzJS.
+> * [OzJS](https://github.com/dexteryy/OzJS) is a microkernel for modular javascript, with bundles of powerful yet micro-framework friendly AMD modules. 
+> * [Ozma](https://github.com/dexteryy/ozma.js) is an intelligent autobuild tool for OzJS.
 
 ## Getting Started
+
 Install this [grunt] plugin next to your project's [grunt.js gruntfile][getting_started] with: 
 
 ```
@@ -65,7 +70,20 @@ grunt
 
 See `tests/index.html` and `tests/static/js/`
 
+## Source code
+
+* [View on Github](https://github.com/dexteryy/grunt-ozjs)
+
+## More References
+
+See [OzJS References](http://ozjs.org/#ref)
+
+## Release History
+
+See [OzJS Release History](http://ozjs.org/#release)
+
 ## License
-Copyright (c) 2012 dexteryy  
+
+Copyright (c) 2010 - 2013 dexteryy  
 Licensed under the MIT license.
 
