@@ -35,7 +35,6 @@ ozma: {
     testapp: {
         src: 'tests/js/main.js', // same as 'ozma tests/js/main.js'
         saveConfig: false, // true for default ('ozconfig.json'), or string for specified path and file name
-        debounceDelay: 3000, // see [1]
         config: { // or existing configuration file, same as option '--config'
             baseUrl: "tests/js/",
             distUrl: "tests/.tmp/js/",
@@ -45,8 +44,6 @@ ozma: {
     }
 }
 ```
-
-[1]: fix for [built-in watch](https://github.com/gruntjs/grunt/issues/376)
 
 #### Options
 

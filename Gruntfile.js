@@ -1,17 +1,16 @@
 
 module.exports = function(grunt) {
-    'use strict';
 
     grunt.initConfig({
-        info: grunt.file.readJSON('package.json'),
+        pkg: grunt.file.readJSON('package.json'),
         meta: {
             name: 'testapp',
             distDir: 'tests/dist',
             staticDir: 'tests/static',
-            banner: '/*!\n * test app for <%= info.title || info.name %> - v<%= info.version %> - ' +
+            banner: '/*!\n * test app for <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
                 '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-                ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= info.author.name %>;' +
-                ' Licensed <%= _.pluck(info.licenses, "type").join(", ") %>\n */'
+                ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
+                ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %>\n */'
         },
         oz: {
             // comming soon...
@@ -20,7 +19,6 @@ module.exports = function(grunt) {
             testapp: {
                 src: 'tests/js/main.js',
                 saveConfig: false, // true for default ('ozconfig.json'), or string for specified path and file name
-                debounceDelay: 3000, // fix for built-in watc
                 'config': { // or existing configuration file, same as option '--config'
                     baseUrl: "tests/js/",
                     distUrl: "<%= meta.distDir %>/js/",
@@ -33,28 +31,37 @@ module.exports = function(grunt) {
             }
         },
         concat: {
+            options: {
+                stripBanners: true,
+                banner: '<%= meta.banner %>'
+            },
             dist: {
-                src: ['<banner:meta.banner>', '<%= meta.distDir %>/js/main.js'],
+                src: ['<%= meta.distDir %>/js/main.js'],
                 dest: '<%= meta.staticDir %>/js/<%= meta.name %>.js'
             }
         },
-        min: {
+        uglify: {
             dist: {
-                src: ['<banner:meta.banner>', '<%= concat.dist.dest %>'],
+                src: ['<%= meta.banner %>', '<%= concat.dist.dest %>'],
                 dest: '<%= meta.staticDir %>/js/<%= meta.name %>.min.js'
             }
         },
-        lint: {
+        jshint: {
             all: ['grunt.js', 'tasks/*.js']
         },
         watch: {
             files: 'tests/js/**/*.js',
-            tasks: 'ozma:testapp concat'
+            tasks: ['ozma:testapp', 'concat']
         }
     });
 
     grunt.loadTasks('tasks');
 
-    grunt.registerTask('default', 'lint ozma:testapp concat min');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+
+    grunt.registerTask('default', ['jshint', 'ozma:testapp', 'concat', 'uglify']);
 
 };

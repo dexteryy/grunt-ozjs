@@ -1,37 +1,44 @@
 {
-    "name": "grunt-ozjs",
-    "title": "grunt-ozjs",
-    "description": "grunt tasks for oz.js and ozma.js",
-    "version": "0.1.9",
-    "homepage": "https://github.com/dexteryy/grunt-ozjs",
-    "author": {
-        "name": "dexteryy",
-        "email": "dexter.yy@gmail.com",
-        "url": "http://github.com/dexteryy"
-    },
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "https://github.com/gruntjs/grunt-contrib-requirejs/blob/master/LICENSE-MIT"
-        }
-    ],
-    "main": "grunt.js",
-    "engines": {
-        "node": "*"
-    },
-    "devDependencies": {
-        "grunt": "~0.3.16"
-    },
-    "dependencies": {
-        "ozma": ">=1.4.3"
-    },
-    "keywords": [
-        "gruntplugin",
-        "browser",
-        "require",
-        "AMD",
-        "bundle",
-        "build",
-        "ozjs"
-    ]
+  "name": "grunt-ozjs",
+  "title": "grunt-ozjs",
+  "description": "grunt tasks for oz.js and ozma.js",
+  "version": "0.2.0",
+  "homepage": "https://github.com/dexteryy/grunt-ozjs",
+  "author": {
+    "name": "dexteryy",
+    "email": "dexter.yy@gmail.com",
+    "url": "http://github.com/dexteryy"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/gruntjs/grunt-contrib-requirejs/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {
+    "ozma": ">=1.4.3"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-concat": "~0.1.2",
+    "grunt-contrib-uglify": "~0.1.1",
+    "grunt-contrib-watch": "~0.2.0",
+    "grunt": "~0.4.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
+  },
+  "keywords": [
+    "gruntplugin",
+    "browser",
+    "require",
+    "AMD",
+    "bundle",
+    "build",
+    "ozjs"
+  ]
 }

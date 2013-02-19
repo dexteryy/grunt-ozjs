@@ -7,10 +7,10 @@ module.exports = function(grunt){
 
     grunt.registerMultiTask('ozma', DESC, function() {
         var done = this.async();
-        grunt.helper('ozma', this.data, done);
+        ozma(this.data, done);
     });
 
-    grunt.registerHelper('ozma', function(opt, cb) {
+    function ozma(opt, cb) {
         recurse_process(opt);
         opt = Object.create(opt);
         var src = opt.src;
@@ -28,7 +28,7 @@ module.exports = function(grunt){
         }
         opt._ = [src];
         Ozma()(opt, cb);
-    });
+    }
 
     function recurse_process(obj){
         for (var i in obj) {
