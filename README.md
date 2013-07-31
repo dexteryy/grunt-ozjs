@@ -5,7 +5,7 @@ title: grunt-ozjs
 
 # grunt-ozjs
 
-> * [OzJS](https://github.com/dexteryy/OzJS) is a microkernel for modular javascript, with bundles of powerful yet micro-framework friendly AMD modules. 
+> * [OzJS](https://github.com/dexteryy/OzJS) is a microkernel for modular javascript, a toolchain for modern front-end, a micro-framework for growable WebApp. 
 > * [Ozma](https://github.com/dexteryy/ozma.js) is an intelligent autobuild tool for OzJS.
 
 ## Getting Started
@@ -29,7 +29,7 @@ grunt.loadNpmTasks('grunt-ozjs');
 
 ``` javascript
 oz: {
-    // comming soon...
+    // coming soon...
 },
 ozma: {
     testapp: {
@@ -73,7 +73,7 @@ See `tests/index.html` and `tests/static/js/`
 
 ## More References
 
-See [OzJS References](http://ozjs.org/#ref)
+See [OzJS Project Homepage](http://ozjs.org/)
 
 ## Release History
 

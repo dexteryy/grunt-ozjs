@@ -13,7 +13,7 @@ module.exports = function(grunt) {
                 ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %>\n */'
         },
         oz: {
-            // comming soon...
+            // coming soon...
         },
         ozma: {
             testapp: {
