@@ -2,8 +2,12 @@
   "name": "grunt-ozjs",
   "title": "grunt-ozjs",
   "description": "grunt tasks for oz.js and ozma.js",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage": "https://github.com/dexteryy/grunt-ozjs",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dexteryy/grunt-ozjs.git"
+  },
   "author": {
     "name": "dexteryy",
     "email": "dexter.yy@gmail.com",
