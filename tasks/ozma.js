@@ -1,9 +1,15 @@
-
 module.exports = function(grunt){
 
     var path = require('path');
     var ozma = require('ozma').ozma;
     var DESC = 'enables you to use gruntfile to configure ozma and integrate with other grunt tasks';
+    var ozmaConfig = {
+      logger: (function() {
+        var result = Object.create(console)
+        result.log = grunt.verbose.writeln
+        return result
+      }())
+    }
 
     grunt.registerMultiTask('ozma', DESC, function() {
         var done = this.async();
@@ -27,7 +33,7 @@ module.exports = function(grunt){
                     .replace('{', '{\n  ').replace('}', '\n}'));
         }
         opt._ = [src];
-        ozma().exec(opt, cb);
+        ozma(ozmaConfig).exec(opt, cb);
     }
 
     function recurse_process(obj){
