@@ -27,7 +27,7 @@ grunt.loadNpmTasks('grunt-ozjs');
 
 #### Config Example
 
-``` javascript
+```javascript
 oz: {
     // coming soon...
 },
