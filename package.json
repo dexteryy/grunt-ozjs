@@ -2,7 +2,7 @@
   "name": "grunt-ozjs",
   "title": "grunt-ozjs",
   "description": "grunt tasks for oz.js and ozma.js",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "homepage": "https://github.com/dexteryy/grunt-ozjs",
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
     "grunt": "~0.4.0"
   },
   "peerDependencies": {
-    "ozma": "~1.9.1",
+    "ozma": "~1.9.2",
     "ozjs": "~2.6.4",
     "grunt": "~0.4.0"
   },
