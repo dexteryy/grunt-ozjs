@@ -23,8 +23,7 @@
   "engines": {
     "node": ">= 0.8.0"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "grunt-contrib-jshint": "~0.1.1",
     "grunt-contrib-concat": "~0.1.2",
@@ -35,7 +34,7 @@
   "peerDependencies": {
     "ozma": "~1.9.2",
     "ozjs": "~2.6.4",
-    "grunt": "~0.4.0"
+    "grunt": ">=0.4.0"
   },
   "keywords": [
     "gruntplugin",
